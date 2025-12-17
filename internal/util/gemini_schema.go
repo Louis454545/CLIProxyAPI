@@ -296,6 +296,8 @@ func flattenTypeArrays(jsonStr string) string {
 func removeUnsupportedKeywords(jsonStr string) string {
 	keywords := append(unsupportedConstraints,
 		"$schema", "$defs", "definitions", "const", "$ref", "additionalProperties",
+		"propertyNames", "patternProperties", "unevaluatedProperties", "unevaluatedItems",
+		"dependentSchemas", "dependentRequired", "if", "then", "else", "not",
 	)
 	for _, key := range keywords {
 		for _, p := range findPaths(jsonStr, key) {
